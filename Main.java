@@ -1,46 +1,50 @@
-package Controlador;
-//
-
-import Clases.Persona;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+        int opcion;
 
-      Persona p = new Persona(); // estoy declarando que p va ser un objeto de tipo persona
-      p.nombre = "fran";
-      p.edad = 32;
-      p.peso = 65;
-      p.estatura = 1.78;
-      p.dni = "6258745J";
+        Scanner entrada = new Scanner(System.in);
+        SintonizadorFM SintonizarFM = new SintonizadorFM();
+        do {
+            System.out.println(" *** RADIO FM ***");
+            System.out.println(" *** 1. Subir");
+            System.out.println(" *** 2. Bajar");
+            System.out.println(" *** 3. Indicar un favorito ***");
+            System.out.println(" *** 4. Indique tu opción ****->");
+            opcion = entrada.nextInt();
+            switch (opcion) {
+                case 1 -> {
+                    SintonizarFM.up();
+                    SintonizarFM.display();
+
+                }
+
+                case 2 -> { SintonizarFM.down();
+                      SintonizarFM.display();
 
 
-      System.out.println("Nombre->" + p.nombre
-              + "\n Edad-> " + p.edad
-              + "\n peso-> " + p.peso
-              + "\n estatura->" + p.estatura
-              + "\n  DNI->" + p.dni);
+            }
+            case 3 -> {
+                System.out.print("indica la frecuencia favorita");
+                SintonizarFM.setFrecuencia(entrada.nextDouble());
+                SintonizarFM.display();
+            }
 
 
-      Persona x = new Persona();
-      x.nombre= "Isabel";
-      x.edad = 35;
-      x.peso = 65;
-      x.estatura = 1.65;
-      x.dni = "06258777B";
+            case 4 -> System.out.println("----apagando----");
+            default -> System.out.println("Opción no valida");
 
-      System.out.println(" Nombre -> " + x.nombre
-              + "\n Edad->" + x.edad
-              + "\n peso->" + x.peso
-              + "\n estatura->" + x.estatura
-              + "\n DNI-> " + x.dni);
-      x.cumplirAnio();
-      p.crecer(-0.05);
-      System.out.println(p.nombre + " ahora mida " + p.estatura);
-      x.saludar();
+
+         }
+
+
+    }while(opcion!=4);
+
+
+
     }
 
 
 }
-
-
