@@ -42,17 +42,78 @@ public class Lista {
                 System.out.println("el indice indicado es fuera de rango!");
                 //Insertar otra lista dentro de la lista original
             }
-
-            public void insertarLista (lista nuevaLista){
+        }
+            public void insertarLista (Lista nuevaLista){
                 //1. La longitud de la lista original
+
 
                 int logOriginal = elemento.length;
                 //2. Hacer hueco.
-                elemento = Arrays.copyOf(elemento, elemento.length + nuevaLista.elemento.lengh);
+                elemento = Arrays.copyOf(elemento, elemento.length+nuevaLista.elemento.length);
                 //Ejem. [60,80,100, null, null, null, null, null, null, null]
-                System.out.println(Arrays.toString(elemento));
                 //3.Copiar la lista
-                System.arraycopy(nuevaLista.elemento, logOriginal, nuevaLista.elemento.leght);
+                System.arraycopy(nuevaLista.elemento,0,elemento,logOriginal,nuevaLista.elemento.length);
                 System.out.println(Arrays.toString(elemento));
             }
-        }
+                public void eliminarNum(int indice) {
+                if (elemento.length>indice && indice >=0){
+                    Integer numeroEliminar=elemento[indice];//eje: 100 -indice =2
+                    for (int i = indice+1; i<elemento.length; i++){
+                        elemento [i-1]=elemento[i];
+                        elemento = Arrays.copyOf((elemento,elemento.length-1);
+                        System.out.println("el numero ["+numeroEliminar+"] sera eliminado del Array");
+                        System.out.println(Arrays.toString(elemento));
+
+
+
+                    }
+
+
+                }
+                }
+
+//buscar numero que pasen por parametro
+            public void buscarNum(Integer num){
+                    int indice =-1; //
+                        for (int i = 0; i<elemento.length && indice == -1; i++) {
+                            //para compara el interger ==...sinon equal -> porque es un Array
+                            if elemento [i].equals(num){
+                            indice =i;
+                            }
+                        }
+                        if (indice!=-1);{
+                            System.out.println("El numero buscando ["+num+"]; esta en la posción "+indice );
+                    }else{
+                    System.out.println("el número buscado [" + num + "] no ha sido encontrado");
+
+                }
+
+                }
+
+
+            //Metodos para concatenas dos arrays
+
+            1//para concatenar dos listas vamos crear dos listas donde una tercera lista se guardará
+
+        public Lista concatenarListas(Lista l1, Lista l2){
+                    Lista nuevaLista=new Lista();
+
+         //
+
+                for (Integer e:l1.elemento) {
+                    nuevaLista.insertarUltimo(e);
+                }
+                System.out.println("El resultado de concatenar la lista 1 co la lista 2 es" +
+
+                        Arrays.toString(nuevaLista.elemento));
+                return nuevaLista;
+
+            }
+
+
+         }
+
+
+
+
+
